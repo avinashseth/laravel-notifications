@@ -15,7 +15,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('avinash:seth')->everyMinute()
+            ->evenInMaintenanceMode()
+            ->sendOutputTo('file/to/path/output_log.txt')
+            ->emailOutputTo('avinash@example.com');
+        // $schedule->job(new MyJob)->everyFiveMinutes();
+        // $schedule->exec('touch avinash114.php')->everyMinute();
+        // $schedule->command('avinash:seth')
+        //     ->timezone('America/New_York')
+        //     ->at('20:15')
+        //     ->withoutOverlapping();
+
     }
 
     /**

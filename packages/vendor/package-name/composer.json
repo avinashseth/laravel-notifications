@@ -1,0 +1,19 @@
+{
+    "name": "vendor/package-name",
+    "description": "this is the very first package developed using laravel",
+    "require": {
+        "php": "^7.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\PackageName\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "avinashseth",
+            "email": "bloggerbeg@gmail.com"
+        }
+    ]
+}

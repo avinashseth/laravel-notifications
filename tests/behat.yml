@@ -1,0 +1,5 @@
+default:
+  suites:
+    Feature:
+      contexts:
+        - Tests\Contexts\FeatureContext
