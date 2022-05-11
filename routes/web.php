@@ -1,52 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\ReactionController;
-use Avinash\Seth\Greet;
-
-Route::get('/greet/{name}', function ($name) {
-    $greet = new Greet();
-    return $greet->sendGreetings($name);
-});
-
-Route::get('/check-notify', function () {
-    return view('notify');
-});
- 
-Route::get('send-money',[ReactionController::class, 'sendMoneyNotification']);
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
-    return view('welcome');
+    $response = Http::get('https://mocki.io/v1/d4867d8b-b5d5-4a48-a4ab-79131b5809b8');
+    dd($response->headers());
 });
 
-Auth::routes();
+Route::post('/test', function(Request $request) {
+    echo json_encode([
+        'status'    =>  rand(0,1),
+        'no_of_messages'    =>  rand(50,100),
+        'name'  =>  $request->name
+    ]);
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('check-age/{age}', function($age) {
-
-    $user = Auth::user();
-    
-    if($user->can('checkCheckUserAge', $user))
-    {
-        echo 'Student age is ' . $age;
-    }
-    else
-    {
-        echo 'Not allowed to view';
-    }
+Route::get('/http-post', function () {
+    // $response = Http::post('https://jsonplaceholder.typicode.com/posts', [
+    //     'title' => 'foo',
+    //     'body' => 'bar',
+    //     'userId' => 1,
+    // ]);
+    $response = Http::post('http://localhost:8000/test', ['name'=>'avinash']);
+    echo $response->body();
 });
