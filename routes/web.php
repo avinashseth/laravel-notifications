@@ -2,6 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ReactionController;
+use Avinash\Seth\Greet;
+
+Route::get('/greet/{name}', function ($name) {
+    $greet = new Greet();
+    return $greet->sendGreetings($name);
+});
+
+Route::get('/check-notify', function () {
+    return view('notify');
+});
+ 
+Route::get('send-money',[ReactionController::class, 'sendMoneyNotification']);
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

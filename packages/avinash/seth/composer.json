@@ -1,5 +1,5 @@
 {
-    "name": "vendor/package-name",
+    "name": "avinash/seth",
     "description": "this is the very first package developed using laravel",
     "require": {
         "php": "^7.0"
@@ -7,7 +7,14 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Vendor\\PackageName\\": "src/"
+            "Avinash\\Seth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "avinash\\seth\\AvinashProvider"
+            ]
         }
     },
     "authors": [

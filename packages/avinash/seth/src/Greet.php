@@ -1,13 +1,13 @@
 <?php
 
-    namespace Vendor\PackageName;
+    namespace Avinash\Seth;
 
     class Greet {
 
-        public function greet(String $name) {
+        public function sendGreetings(String $name) {
 
             return 'Hello ' . $name . '! Welcome from the Package';
-            
+
         }
 
     }

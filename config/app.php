@@ -175,6 +175,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * For Package Avinash/Seth
+         */
+        Avinash\Seth\AvinashSethProvider::class
+
     ],
 
     /*
